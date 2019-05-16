@@ -35,6 +35,24 @@ public:
 
 	void addEdge(int v, int w) {
 
+		assert(v >= 0 && v < n);
+		assert(w >= 0 && w < n);
 
+		if (hasEdge(v, w))
+			return;
+		g[v][w] = true;
+
+		if (!directed)
+			g[w][v] = true;
+
+		m++;
+
+	}
+
+	bool hasEdge(int v, int w) {
+
+		assert(v >= 0 && v < n);
+		assert(w >= 0 && w < n);
+		return g[v][w];
 	}
 };
