@@ -35,6 +35,9 @@ public:
 		assert(v >= 0 && v < n);
 		assert(w >= 0 && w < n);
 
+		if (hasEdge(v, w))
+			return;
+
 		g[v].push_back(w);
 		if (v != w && !directed)
 			g[w].push_back(v);
@@ -56,7 +59,7 @@ public:
 	class adjIterator {
 
 	private:
-		SparseGraph &G;//??????
+		SparseGraph &G;	//&G ?
 		int v;
 		int index;
 	public:
